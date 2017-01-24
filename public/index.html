@@ -1,0 +1,100 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Inicio Sesión</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="../public/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../public/js/bootstrap.min.js">
+	<link rel="stylesheet" href="../public/js/animate.css">
+    <link rel="stylesheet" href="../public/font-awesome/css/font-awesome.css">	
+    <!-- estilos-->
+    <link rel="stylesheet" href="../public/css/index.css">
+</head>
+<body>
+<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<div class="formulario" id="formulario">
+					<div class="form-group">
+					  	<h4 class="text-center">Ingresa al Chat</h4>
+	                    <label for="username" class="control-label">Nombre</label>
+	                    <input type="text" style="background-color:transparent; " class="form-control" id="nombre" name="nombre" value="" required="" placeholder="Ingresa tu nombre">
+	                </div>
+	                <div class="form-group">
+	                    <label for="password" class="control-label">Nickname</label>
+	                    <input type="text" style="background-color:transparent; " class="form-control" id="nick" name="nick" placeholder="Ingresa un Nickname">
+	                </div>
+	                <div class="form-group">
+	                    <label for="password" class="control-label">Edad</label>
+	                    <input type="text" style="background-color:transparent; " class="form-control" id="edad" name="edad" placeholder="Ingresa tu edad">
+	                </div>
+	               <div class="radio">
+  				   <label><input type="radio" id="hombre" name="optradio" value="h">Hombre</label>
+				   </div>
+				   <div class="radio">
+  				   <label><input type="radio" id="mujer" name="optradio" value="m">Mujer</label>
+				   </div>
+	               <button type="submit" class="btn btn-success btn-block" onclick="logearse()">Login</button>
+				</div>
+			</div>
+	</div>
+
+
+<!--
+<h1>bienvenido al chat</h1>
+<label for="nombre">
+	Nombre:
+</label>
+<input type="text" id="nombre">
+<hr>
+<input type="text" id="salida"> <button onclick="enviar();" id="boton">Saludar</button>
+<ul id="lista">
+
+</ul>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+	var socket;
+	var nombre;
+	var inputName;
+	window.onload = function(){
+		var lista = document.getElementById('lista');
+		inputName = document.getElementById('nombre');
+
+
+		socket = io.connect();
+
+		socket.on('connect', function () {
+			console.log("Cliente");
+			//socket.emit('identify', "Gerson3");
+		});
+
+		socket.on('historia', function(_mensajes)
+		{
+			for(var i in _mensajes)
+			{
+				lista.innerHTML += '<li>' + _mensajes[i] +  '</li>';
+			}
+		});
+
+		socket.on('saludo_global', function(_saludo){
+			lista.innerHTML += '<li>' + _saludo +  '</li>';
+		})
+	};
+
+	function enviar()
+	{
+		var input = document.getElementById('salida');
+		console.log(input.value);
+		socket.emit('saludo', inputName.value + ' :: ' + input.value);
+	}
+
+	function updateName()
+	{
+		socket.emit('identify', inputName.value);
+	}
+</script>
+-->
+</body>
+<!--<script src="/socket.io/socket.io.js"></script>-->
+<script type="text/javascript" src="../public/js/index.js"></script>
+</html>
