@@ -4,6 +4,8 @@ function Persona(_nombre,_nick,_edad,_sexo) {
   this.edad = _edad;
   this.sexo = _sexo;
 }
+var lista_personas[];
+
 function isAlphabetic(cadena)
 {
       if (cadena.match(/^[a-zA-Z]+$/))
@@ -41,5 +43,5 @@ function logearse(){
 		document.getElementById("nombre").value="";
 		valido= false;
 	}
-
+	lista_personas.push(persona);
 }

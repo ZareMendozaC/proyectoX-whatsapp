@@ -11,11 +11,11 @@ router.use(express.static(path.resolve(__dirname, 'public')));
 var server = http.createServer(router);
 var io = socketio.listen(server);
 
-var sockets = [];
+var sockets = []; 
+var clientes = [];  
 var mensajes = [];
 
 io.on('connection', function(socket){
-	console.log("Holaa");
 	sockets.push(socket);
 	//socket.set('name', 'XXX');
 	socket.emit('historia', mensajes);
@@ -34,6 +34,8 @@ io.on('connection', function(socket){
 
 	socket.on('identify', function(_name){
 		socket.set('name', 'yyyy');
+		clientes.push(_name);
+		socket.emit('afterLogin', 'true');
 	})
 });
 
